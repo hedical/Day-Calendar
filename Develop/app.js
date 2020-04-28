@@ -12,15 +12,8 @@ $(document).ready(function () {
     var time = moment().format('H');
     var currentDay = moment().format('LLLL');
     var numActualHour = parseInt(time, 10);
-    var countTask = "";
+    var count = 0;
     var hours = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
-
-    // var hours2 = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
-
-    // var time2 = moment().format('hA');
-    // console.log(time2);
-    // need to fix the AM-PM sytem
-    // need to store values as 9 AM, 10 AM ... and find the matching one to the actual hour. Then all the one after the actual hour matching value go green, and other grey
 
 
     // Save buttons to store in local storage
@@ -29,12 +22,13 @@ $(document).ready(function () {
         var textArea = $(`#text-${[index]}`).val();
         var hour = "hour-" + index;
         window.localStorage.setItem(hour, textArea);
+        count = 0;
+        $("#counter").html("");
+        countTask()
         // showAlert("Succesfully edited todo", "success");
         // renderTodos();
 
     })
-
-
 
 
     // Function to display the current day on top of the screen
@@ -47,10 +41,10 @@ $(document).ready(function () {
     // Function to generate all the calendar blocks
     function generateCalendar(arr) {
         for (var i = 0; i < arr.length; i++) {
-            $(".container").append(`<div id="hour-${arr[i]}" class="">
-            <h6 class="align-center">${arr[i]}AM</h6>
-            <textarea name="dunno" id="text-${arr[i]}" cols="100" rows="2"></textarea>
-            <button id= "btn-${arr[i]}" data-id= "${arr[i]}" class="btn btn-primary">Save</button>
+            $(".container").append(`<div class="" id="hour-${arr[i]}">
+            <h6 class="text-center col-1">${arr[i]}H</h6>
+            <textarea class="text-center col-10" id="text-${arr[i]}" name="dunno" cols="100" rows="2"></textarea>
+            <button class="btn btn-info col-1" id="btn-${arr[i]}" data-id="${arr[i]}">Save</button>
           </div>`)
         }
     } generateCalendar(hours)
@@ -72,22 +66,8 @@ $(document).ready(function () {
 
     } setColorBlocks(hours)
 
-    // //// test version 2
 
-    // function findGreen(arr, index) {
-
-    //     var newArr = [];
-    //     for (let i = index + 1; i < arr.length; i++) {
-    //         newArr.push(arr[i]);
-    //     }
-    //     return newArr;
-
-    // //////
-
-
-
-
-    // Get item from local storage on loading
+    // Get item from local storage on loading and counting the number of tasks
     function displayTask() {
 
         for (var i = 9; i < hours.length + 9; i++) { // 9 is the first hour of the day
@@ -101,5 +81,31 @@ $(document).ready(function () {
         }
 
     } displayTask()
+
+    // NEW FEATURE : Task counter on top of the screen
+    function countTask() {
+
+        for (var i = 9; i < hours.length + 9; i++) {
+
+            var text = window.localStorage.getItem("hour-" + i);
+            $(`#text-${[i]}`).val(text);
+            if (text) {
+                count++
+                console.log(count);
+
+            }
+        } $("#counter").text((`You have ${count} tasks to do`))
+
+    } countTask()
+
+
+    function showAlert() {
+
+    }
+
+    // function reset(){
+
+    // }
+
 
 })
