@@ -1,8 +1,18 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Work Day Scheduler
+In this exercice, the goal is to create a work day calendar to manage our time
 
-Create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+# Motivation
+This exercise was the opportunity to understand how to use JavaScript commands, but also the jQuery and Moment.js library.
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+# Setup
+Simply click on this link to access the my quizz : https://hedical.github.io/Day-Calenda…
+
+# Instructions and Challenges
+- Use components from Bootsrap
+- Get use to jQuery library
+- Get use to Moment.js library
+- Display dynamically information on the screen depending on user choices
+- Store information in local storage and retreive it
 
 ## User Story
 
@@ -34,13 +44,3 @@ The following animation demonstrates the application functionality:
 
 ![day planner demo](./Assets/05-third-party-apis-homework-demo.gif)
 
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
