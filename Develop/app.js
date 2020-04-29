@@ -5,8 +5,8 @@ $(document).ready(function () {
     var currentDay = moment().format('LLLL');
     var numActualHour = parseInt(time, 10);
     var count = 0;
-    var firstHour = 9;
     var hours = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+    var firstHour = hours[0];
 
     //Hiding the alert
     $("#alert").hide()
