@@ -40,11 +40,6 @@ $(document).ready(function () {
         showAlert("All tasks deleted, see you tomorrow :)", "primary")
     })
 
-    // Function to save information in local storage
-    function save() {
-
-    }
-
     // Function to display the current day on top of the screen
     function generateCurrentDay() {
         $("header").prepend(currentDay)
