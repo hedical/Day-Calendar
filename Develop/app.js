@@ -5,10 +5,18 @@ $(document).ready(function () {
     var currentDay = moment().format('LLLL');
     var numActualHour = parseInt(time, 10);
     var count = 0;
+    var firstHour = 9;
     var hours = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
 
     //Hiding the alert
     $("#alert").hide()
+
+    // Init functions, launch on page load
+    generateCurrentDay();
+    generateCalendar(hours)
+    setColorBlocks(hours)
+    displayTask()
+    countTask()
 
     // Save buttons to store in local storage
     $(document).on("click", "button", function () {
@@ -32,12 +40,16 @@ $(document).ready(function () {
         showAlert("All tasks deleted, see you tomorrow :)", "primary")
     })
 
+    // Function to save information in local storage
+    function save() {
+
+    }
 
     // Function to display the current day on top of the screen
     function generateCurrentDay() {
         $("header").prepend(currentDay)
     }
-    generateCurrentDay();
+
 
 
     // Function to generate all the calendar blocks depending on our "hours" array
@@ -50,7 +62,7 @@ $(document).ready(function () {
                 <button class="btn btn-info col-1 p-0" id="btn-${arr[i]}" data-id="${arr[i]}">Save</button>
           </div>`)
         }
-    } generateCalendar(hours)
+    }
 
 
     // Function to set the attribute of each time block, depending on the current time
@@ -66,14 +78,13 @@ $(document).ready(function () {
                 $(`#hour-${arr[i]}`).attr("class", "row time-block present");
             }
         }
-
-    } setColorBlocks(hours)
+    }
 
 
     // Get item from local storage on loading
     function displayTask() {
 
-        for (var i = 9; i < hours.length + 9; i++) { // 9 is the first hour of the day
+        for (var i = firstHour; i < hours.length + firstHour; i++) {
 
             var text = window.localStorage.getItem("hour-" + i);
             $(`#text-${[i]}`).val(text);
@@ -82,13 +93,12 @@ $(document).ready(function () {
                 continue;
             }
         }
-
-    } displayTask()
+    }
 
     // NEW FEATURE : Task counter on top of the screen
     function countTask() {
 
-        for (var i = 9; i < hours.length + 9; i++) {
+        for (var i = firstHour; i < hours.length + firstHour; i++) {
 
             var text = window.localStorage.getItem("hour-" + i);
             $(`#text-${[i]}`).val(text);
@@ -103,8 +113,7 @@ $(document).ready(function () {
         } else {
             $("#counter").text((`You have ${count} tasks to do`))
         }
-
-    } countTask()
+    }
 
     // NEW FEATURE : Show an alert
     function showAlert(str, type) {
@@ -115,6 +124,5 @@ $(document).ready(function () {
         window.setTimeout(function () {
             $("#alert").hide();
         }, 2000)
-
     }
 })

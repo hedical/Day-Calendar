@@ -21,10 +21,6 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.description{
-  white-space: pre-wrap;
-}
-
 .time-block{
   text-align: center;
   border-radius: 15px;
@@ -55,24 +51,4 @@ textarea{
 .future {
   background-color: #77dd77;
   color: white;
-}
-
-.saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06AED5;
-  color: white;
-}
-
-.saveBtn i:hover {
-  font-size: 20px;
-  transition: all .3s ease-in-out;
-}
-
-span{
-  background-color: red;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
 }
