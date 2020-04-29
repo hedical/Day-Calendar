@@ -98,7 +98,7 @@ $(document).ready(function () {
             }
 
         }
-        if (count === 1) {
+        if (count === 1 || count === 0) {
             $("#counter").text((`You have ${count} task to do`))
         } else {
             $("#counter").text((`You have ${count} tasks to do`))
