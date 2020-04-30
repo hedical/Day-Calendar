@@ -69,7 +69,7 @@ $(document).ready(function () {
             else if (numActualHour < arr[i]) {
                 $(`#hour-${arr[i]}`).attr("class", "row time-block future");
             }
-            else if (numActualHour = arr[i]) {
+            else if (numActualHour === arr[i]) {
                 $(`#hour-${arr[i]}`).attr("class", "row time-block present");
             }
         }
