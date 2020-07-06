@@ -5,7 +5,7 @@ In this exercice, the goal is to create a work day calendar to manage our time
 This exercise was the opportunity to understand how to use JavaScript commands, but also the jQuery and Moment.js library.
 
 # Setup
-Simply click on this link to access the my quizz : https://hedical.github.io/Day-Calenda…
+Simply click on this link to access the my quizz : https://hedical.github.io/Day-Calendar/Develop/
 
 # Instructions and Challenges
 - Use components from Bootsrap
